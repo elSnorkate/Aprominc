@@ -1,4 +1,5 @@
 import React from 'react'
+import { NSliders } from './NSliders'
 
 export const Noticias = () => {
   return (
@@ -6,16 +7,10 @@ export const Noticias = () => {
     <div className='mwrapper'>
         <div className='leftDiv ' >
             <h2>Noticias</h2>
-            <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam, placeat! Minus, molestiae, quia exercitationem ab suscipit veritatis corrupti doloremque, consequuntur officiis soluta consectetur aspernatur placeat sapiente saepe. Ut, facilis fugiat?</p>
+            <p>En APROMINC nos mantenemos concientes del ambiente, la sociedad y la importancia del individuo. Por ello siempre nos mantenos consientes y constantes con actividades para la sociedad y cada uno de nuestros trabajadores</p>
         </div>
         <div className='rightDiv' >
-            <div className='shold'>
-                <div className='nbox'>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, eum minus. Nam voluptatibus necessitatibus voluptatem ut vitae atque magni ea, illum repellat ipsum quam magnam quo eos, quidem vel sed!</p>
-                    <div id='nhold'>
-                    </div>
-                </div>
-            </div>
+                    <NSliders/>
         </div>
     </div>
     </>

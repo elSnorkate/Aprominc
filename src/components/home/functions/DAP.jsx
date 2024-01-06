@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import '../../../main/Extras.css';
+import '../../../main/Extras.css'; // Assuming you have some CSS styles defined here
+import { Almacen } from '../../../assets/Almacen';
 
-const More = ['1', '2', '3', '4', '5', '6'];
+const More = [
+  'Oportunidad',
+  'Detallada',
+  'Contacto',
+  'Detallado',
+  'Noticias',
+  'Detalladas',
+  'A detalle',
+];
 
 export const DAP = () => {
   const [currentNumber, setCurrentNumber] = useState(0);
@@ -18,13 +27,17 @@ export const DAP = () => {
   }, [currentNumber]);
 
   return (
-    <CSSTransition
-      in={true}
-      appear={true}
-      timeout={1000}
-      classNames="fade"
-    >
-      <div>{More[currentNumber]}</div>
+    <CSSTransition in={true} appear={true} timeout={1000} classNames="fade">
+      <div>
+        <span>
+          <small>{More[currentNumber]}</small>
+        </span>
+        <img
+          src={Almacen.ArrowRight}
+          alt="Right Arrow"
+          style={{ width: '13px', height: '13px' }}
+        />
+      </div>
     </CSSTransition>
   );
 };

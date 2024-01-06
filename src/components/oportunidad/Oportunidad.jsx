@@ -1,4 +1,5 @@
 import React from 'react'
+import { CallingA } from './functions/CallingA';
 
 export const Oportunidad = () => {
   return (
@@ -6,20 +7,16 @@ export const Oportunidad = () => {
     <div className='mwrapper'>
         <div className='leftDiv ' >
             <h2>Oportunidad Laboral</h2>
-            <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam, placeat! Minus, molestiae, quia exercitationem ab suscipit veritatis corrupti doloremque, consequuntur officiis soluta consectetur aspernatur placeat sapiente saepe. Ut, facilis fugiat?</p>
-
-            <p>En caso cuentes con algun perfil, puedes postular aqui</p>
-            <button className='btype3'>a</button>
-            <button className='btype3'>b</button>
-            <button className='btype3'>c</button>
+            <p>En APROMINC, nos comprometemos activamente a respaldar la contratación y promoción de oportunidades laborales en el sector minero. Nuestra labor se centra en facilitar la conexión entre profesionales altamente calificados y empresas mineras que buscan talento excepcional para fortalecer sus equipos de trabajo.</p>
+            <p><strong> <i> En caso cuentes con algun perfil, puedes postular aqui</i></strong></p>
+            <div>
+              <button className='btype3' style={{marginRight:"1rem"}} > a</button>
+              <button className='btype3' style={{margin:"1rem"}} >b</button>
+              <button className='btype3' style={{margin:"1rem"}} >c</button>
+            </div>
         </div>
         <div className='rightDiv' >
-            <div  className='cont'>
-                <div className='obox' >a</div>
-                <div className='obox' >b</div>
-                <div className='obox' >c</div>
-                <div className='obox' >d</div>
-            </div>
+            <CallingA/>
         </div>
     </div>
     </>
