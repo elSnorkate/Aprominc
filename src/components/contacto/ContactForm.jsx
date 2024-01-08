@@ -40,7 +40,7 @@ export const ContactForm = () => {
         <label htmlFor="recipient">Area a comunicarse:</label><br />
         <select id="recipient" name="recipient" value={formData.recipient} onChange={handleInputChange} className="Inputsbb" required>
           <option value="" disabled>Selecciona Area</option>
-          <option value="fakeemail1@example.com">Fake Email 1</option>
+          <option value="fakeemail1@example.com">test1</option>
           <option value="fakeemail2@example.com">Fake Email 2</option>
           <option value="fakeemail3@example.com">Fake Email 3</option>
         </select> <br />

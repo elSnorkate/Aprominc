@@ -4,13 +4,12 @@ import '../../../main/Extras.css'; // Assuming you have some CSS styles defined 
 import { Almacen } from '../../../assets/Almacen';
 
 const More = [
-  'Oportunidad',
-  'Detallada',
-  'Contacto',
-  'Detallado',
-  'Noticias',
-  'Detalladas',
-  'A detalle',
+  '¿Estás buscando trabajo?',
+  '¿No encuentras lo que buscas?',
+  'APROMINC a diario',
+  'Necesitamos personal',
+  'Respuestas a tus dudas',
+  'Último acontecimiento', // Fixed typo: "Ultimo" to "Último"
 ];
 
 export const DAP = () => {
@@ -20,8 +19,10 @@ export const DAP = () => {
     const interval = setInterval(() => {
       if (currentNumber < More.length - 1) {
         setCurrentNumber(currentNumber + 1);
+      } else {
+        setCurrentNumber(0); // Reset to 0 when it reaches the last index
       }
-    }, 1500);
+    }, 1200);
 
     return () => clearInterval(interval);
   }, [currentNumber]);

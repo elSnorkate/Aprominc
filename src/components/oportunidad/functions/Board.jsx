@@ -29,8 +29,11 @@ export const Board = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log('hola mundo')
         const boardRef = doc(firestore, 'boards', 'board1');
+        console.log('hola mundo2',boardRef)
         const boardSnapshot = await getDoc(boardRef);
+        console.log('hola mundo3')
 
         if (boardSnapshot.exists()) {
           const retrievedContent = boardSnapshot.data().content;

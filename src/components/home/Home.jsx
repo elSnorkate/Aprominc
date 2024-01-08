@@ -3,7 +3,7 @@ import { Almacen } from '../../assets/Almacen';
 import { DAP } from './functions/DAP';
 import { BotonAlt, CallAA, CallBA, CallCA } from './functions/boton/BotonAlt';
 import { Descubre, CallA, CallB, CallC } from './functions/descubre/Descubre';
-import { Link, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 
 export const Home = () => {
   const [showDescubre, setShowDescubre] = useState(false);
@@ -37,6 +37,7 @@ export const Home = () => {
 
   return (
     <>
+    <div className='phone'>
       {isSpecialRouteCalled ? (
         <div>
           <Routes>
@@ -53,7 +54,7 @@ export const Home = () => {
             {showDescubre ? <Descubre /> : <Par />}
             {showDescubre ? null : (
               <button className="btype1" onClick={handleDescubreClick}>
-                Vistazo rapido
+                explora
               </button>
             )}
           </div>
@@ -66,7 +67,7 @@ export const Home = () => {
                 </div>
                 <div className="center">
                   <div>
-                    <img src={Almacen.HomeC} alt="vid"  />
+                    <img src={Almacen.HomeC} alt="vid" id='img1' />
                   </div>
                 </div>
               </>
@@ -77,9 +78,12 @@ export const Home = () => {
               <Route path="/contacto" element={<CallB />} />
               <Route path="/noticias" element={<CallC />} />
             </Routes>
-          </div>
+          </div>\
+          
         </div>
+        
       )}
+      </div>
     </>
   );
 };
