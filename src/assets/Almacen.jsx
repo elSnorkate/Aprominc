@@ -10,9 +10,13 @@ import Familia    from './noticias/a2.png'
 import ArrowRight  from './iconos/rightarrow.svg'
 import HomeCirculo from './Imgs/homecirculo.svg'
 import HomeC from './vids/homeci.gif'
+import Facebook from './iconos/facebook.svg'
+import Linkedin from './iconos/linkedin.svg'
+import Logo from './iconos/aprominclogo.svg'
 
 export const Almacen = {
     Mail,
+    Logo,
     Phone,
     Whatsapp,
     Bar, 
@@ -24,4 +28,6 @@ export const Almacen = {
     ArrowRight,
     HomeCirculo,
     HomeC,
+    Facebook,
+    Linkedin,
 }
