@@ -1,8 +1,102 @@
 /* this is reponsivity of Index.css */
 @media (max-width: 768px) {
     body{
-        
+        background-image: url("../assets//background/back2.svg");
+        height: 100vh;
+
+        width: 40vh;
+    }
+    h1{
+        font-size: 4rem;
+    }
+    h2{
+        display: none;
+    }
+    h3{
+        font-size: 2rem;
+    }
+    small{
+        font-size: 15px;
+    }
+    .btype3{
+        border-color: white;
+    }
+    .Inputsbb{
+        height: 23px;
     }
 }
 /* this is responsivity of App.css */
+@media (max-width: 768px) {
+.mwrapper{
+    flex-direction: column-reverse;
+}
+.leftDiv{
+    width: 100%;
+    margin-top: 5%;
+    height: 45%;
+    align-items: center;
+    justify-content: center;
+
+    
+}
+.rightDiv{
+    height: 52%;
+    flex-direction: column;
+    align-items: center;
+}
+.end{
+    width: 40vh;
+}
 /* this is reponsivity for Extras.css */
+@media (max-width: 768px) {
+.line{
+    width: 325px;
+}
+#img1{
+    height: 350px;
+}
+.dropdown-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.dropdown-content{
+    flex-direction: column;
+    right: initial;
+    top: 150%;
+    width: 6rem;
+    height: fit-content;
+    gap: 1rem;
+    justify-content: flex-start;
+    
+}
+.shold{
+    height: fit-content;
+    max-height: 40vh;
+    margin-left: 2vh;
+    padding: 1rem;
+    width: 38vh;
+    overflow-y:scroll ;
+}
+.nImgs{
+    height: 180px !important;
+    width: 180px !important;
+}
+.descubreBox{
+    display: flex;
+    flex-direction: column;
+}
+.Ibuttons{
+    padding: 0.5rem;
+    margin: 0.25rem;
+}
+.homePc{
+    visibility: hidden;
+}
+.homePhone{
+    display:contents;
+    margin: 0;
+}
+
+}
+}

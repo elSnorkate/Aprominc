@@ -2,6 +2,7 @@ import React from 'react'
 import { NSliders } from './NSliders'
 import { GoHome } from '../global/GoHome'
 import { Almacen } from '../../assets/Almacen'
+import { GoHomePhone } from '../global/GoHomePhone'
 
 export const Noticias = () => {
   return (
@@ -21,6 +22,7 @@ export const Noticias = () => {
 
         </div>
         <div className='rightDiv' >
+          <GoHomePhone/>
                     <NSliders/>
         </div>
     </div>

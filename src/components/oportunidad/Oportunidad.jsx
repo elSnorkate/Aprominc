@@ -2,6 +2,7 @@ import React from 'react'
 import { CallingA } from './functions/CallingA';
 import { Almacen } from '../../assets/Almacen'
 import { GoHome } from '../global/GoHome';
+import { GoHomePhone } from '../global/GoHomePhone';
 
 
 export const Oportunidad = () => {
@@ -20,6 +21,7 @@ export const Oportunidad = () => {
             </div>
         </div>
         <div className='rightDiv' >
+        <GoHomePhone/>
             <CallingA/>
         </div>
     </div>

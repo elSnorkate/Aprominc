@@ -8,6 +8,7 @@ const SliderPage = ({ title, content, imageSrc }) => (
         src={imageSrc}
         alt={`${title} Image`}
         style={{ width: '250px', height: '250px' }}
+        className='nImgs'
       />
       <p>{content}</p>
   </>
@@ -35,15 +36,13 @@ const Slider = ({ pages }) => {
       <SliderPage {...pages[currentPage]} />
 
       <div className="slider-controls">
-        <button className='Ibuttons' onClick={goToPreviousPage}><img src={Almacen.ArrowRight} alt="arrow" height={'15px'} style={{ transform: 'scaleX(-1)' }}
-/>
- </button>
+        <button className='Ibuttons' onClick={goToPreviousPage}>&larr;</button>
         {pages.map((_, index) => (
           <button key={index} className='Ibuttons' onClick={() => goToPage(index)}>
             {index + 1}
           </button>
         ))}
-        <button className='Ibuttons' onClick={goToNextPage}><img src={Almacen.ArrowRight} alt="arrow" height={'15px'} /></button>
+        <button className='Ibuttons' onClick={goToNextPage}>&rarr;</button>
       </div>
     </div>
   );

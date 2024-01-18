@@ -31,13 +31,10 @@ export const DAP = () => {
     <CSSTransition in={true} appear={true} timeout={1000} classNames="fade">
       <div>
         <span>
-          <small>{More[currentNumber]}</small>
+          <small style={{color:'white'}} >{More[currentNumber]}</small> 
+          <small style={{color:'white'}}>&nbsp;&nbsp;&rarr;</small>
         </span>
-        <img
-          src={Almacen.ArrowRight}
-          alt="Right Arrow"
-          style={{ width: '13px', height: '13px' }}
-        />
+        
       </div>
     </CSSTransition>
   );

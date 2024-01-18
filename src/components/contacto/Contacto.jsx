@@ -1,6 +1,7 @@
 import React from 'react'
 import { ContactForm } from './ContactForm'
 import { GoHome } from '../global/GoHome'
+import { GoHomePhone } from '../global/GoHomePhone'
 
 
 export const Contacto = () => {
@@ -21,6 +22,7 @@ export const Contacto = () => {
             </ul>
         </div>
         <div className='rightDiv' >
+        <GoHomePhone/>
             <ContactForm/> 
         </div>
     </div>

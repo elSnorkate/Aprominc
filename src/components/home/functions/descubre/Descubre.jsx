@@ -11,7 +11,7 @@ const CallC = () => <NSliders/>;
 export const Descubre = () => {
   return (
     <>
-      <ul>
+      <ul >
         <li>
           <Link to="/oportunidad">Oportunidad Laboral</Link>
         </li>

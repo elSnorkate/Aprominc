@@ -39,7 +39,6 @@ export const Home = () => {
 
   return (
     <>
-      <div className='phone'>
         {isSpecialRouteCalled ? (
           <div>
             <Routes>
@@ -69,7 +68,7 @@ export const Home = () => {
                   </div>
                   <div className="center">
                     <div>
-                      <img src={Almacen.HomeC} alt="vid" id='img1' />
+                      <img src={Almacen.HomeCirculo} alt="vid" id='img1' />
                     </div>
                   </div>
                 </>
@@ -80,11 +79,10 @@ export const Home = () => {
                 <Route path="/contacto" element={<CallB />} />
                 <Route path="/noticias" element={<CallC />} />
               </Routes>
+              <Footer />
             </div>
           </div>
         )}
-      </div>
-      <Footer />  
     </>
   );
 };
