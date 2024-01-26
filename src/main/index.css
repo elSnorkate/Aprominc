@@ -23,8 +23,9 @@ h3{
 }
 big{
     font-family: 'Varela Round', sans-serif;
-    font-size: 40px;
-    color: red;
+    font-size: 1rem;
+    text-decoration: underline;
+    color: #34656D;
 }
 small{
     font-family: 'Varela Round', sans-serif;

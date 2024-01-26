@@ -1,112 +1,168 @@
-import React, { useState, useEffect } from 'react';
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, doc, getDoc, setDoc } from 'firebase/firestore';
-
-const firebaseConfig = {
-  apiKey: "AIzaSyCHZXFSkWZyuFDOdXk4em5E69U42gcEfcQ",
-  authDomain: "aprominc-oportunidades.firebaseapp.com",
-  projectId: "aprominc-oportunidades",
-  storageBucket: "aprominc-oportunidades.appspot.com",
-  messagingSenderId: "1081489803329",
-  appId: "1:1081489803329:web:04f35d165093537126dec0",
-  measurementId: "G-YRZ2Q6NTPK"
-};
-
-const app = initializeApp(firebaseConfig);
-const firestore = getFirestore(app);
+import React, { useState } from 'react';
 
 export const Board = () => {
-  const initialContent = [
-    { small: 1, values: [1, 1, 1] },
-    { small: 2, values: [1, 2, 2] },
-    { small: 3, values: [1, 3, 3] },
-    { small: 4, values: [1, 1, 1] },
-  ];
+  const [inputs1, setInputs1] = useState({
+    input1: '',
+    input2: '',
+  });
 
-  const [editable, setEditable] = useState(false);
-  const [content, setContent] = useState([]);
+  const [inputs2, setInputs2] = useState({
+    input1: '',
+    input2: '',
+  });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        console.log('hola mundo')
-        const boardRef = doc(firestore, 'boards', 'board1');
-        console.log('hola mundo2',boardRef)
-        const boardSnapshot = await getDoc(boardRef);
-        console.log('hola mundo3')
+  const [inputs3, setInputs3] = useState({
+    input1: '',
+    input2: '',
+  });
 
-        if (boardSnapshot.exists()) {
-          const retrievedContent = boardSnapshot.data().content;
-          console.log('Retrieved Content:', retrievedContent);
-          setContent(retrievedContent);
-        } else {
-          console.log('Document does not exist. Setting initial content.');
-          await setDoc(boardRef, { content: initialContent });
-          setContent(initialContent);
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+  const [inputs4, setInputs4] = useState({
+    input1: '',
+    input2: '',
+  });
 
-    fetchData();
-  }, []);
+  const [isEditing, setIsEditing] = useState(false);
 
-  const handleEditToggle = () => {
-    setEditable(!editable);
+  const handleInputChange = (setInputs, inputName, value) => {
+    setInputs((prevInputs) => ({
+      ...prevInputs,
+      [inputName]: value,
+    }));
   };
 
-  const handleCellChange = async (rowIndex, cellType, newValue) => {
-    const newContent = [...content];
-
-    if (cellType === 'small') {
-      newContent[rowIndex].small = newValue;
-    } else {
-      newContent[rowIndex].values[cellType] = newValue;
+  const handleEnterPress = (setInputs, inputName, value) => {
+    if (value && value.trim() !== '') {
+      setInputs((prevInputs) => ({
+        ...prevInputs,
+        [inputName]: prevInputs[inputName] + value + '\n',
+      }));
+      // Clear the input field
+      setInputs((prevInputs) => ({
+        ...prevInputs,
+        [inputName]: '',
+      }));
     }
+  };
 
-    setContent(newContent);
-
-    const boardRef = doc(firestore, 'boards', 'board1');
-    await setDoc(boardRef, { content: newContent });
+  const handleButtonToggle = () => {
+    setIsEditing((prevIsEditing) => !prevIsEditing);
   };
 
   return (
-    <>
-      <button onClick={handleEditToggle}>
-        {editable ? 'Disable Edit' : 'Enable Edit'}
-      </button>
-      {content.map((row, rowIndex) => (
-        <div key={rowIndex}>
-          <small>
-            {editable ? (
-              <input
-                type="text"
-                value={row.small}
-                onChange={(e) => handleCellChange(rowIndex, 'small', e.target.value)}
-              />
-            ) : (
-              row.small
-            )}
-          </small>
-          <ul>
-            {row.values.map((cell, columnIndex) => (
-              <li key={columnIndex}>
-                {editable ? (
-                  <input
-                    type="text"
-                    value={cell}
-                    onChange={(e) => handleCellChange(rowIndex, columnIndex, e.target.value)}
-                  />
-                ) : (
-                  cell
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </>
+    <div>
+      <div>
+        <input
+          type="text"
+          placeholder="Input 1"
+          value={inputs1.input1}
+          onChange={(e) => handleInputChange(setInputs1, 'input1', e.target.value)}
+          disabled={!isEditing}
+        />
+        <input
+          type="text"
+          placeholder="Input 2"
+          value={inputs1.input2}
+          onChange={(e) => handleInputChange(setInputs1, 'input2', e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              handleEnterPress(setInputs1, 'input2', e.target.value);
+            }
+          }}
+          disabled={!isEditing}
+        />
+        <p className="class1">{inputs1.input1}</p>
+        <ul>
+          {inputs1.input2.split('\n').map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="Input 1"
+          value={inputs2.input1}
+          onChange={(e) => handleInputChange(setInputs2, 'input1', e.target.value)}
+          disabled={!isEditing}
+        />
+        <input
+          type="text"
+          placeholder="Input 2"
+          value={inputs2.input2}
+          onChange={(e) => handleInputChange(setInputs2, 'input2', e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              handleEnterPress(setInputs2, 'input2', e.target.value);
+            }
+          }}
+          disabled={!isEditing}
+        />
+        <p className="class1">{inputs2.input1}</p>
+        <ul>
+          {inputs2.input2.split('\n').map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="Input 1"
+          value={inputs3.input1}
+          onChange={(e) => handleInputChange(setInputs3, 'input1', e.target.value)}
+          disabled={!isEditing}
+        />
+        <input
+          type="text"
+          placeholder="Input 2"
+          value={inputs3.input2}
+          onChange={(e) => handleInputChange(setInputs3, 'input2', e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              handleEnterPress(setInputs3, 'input2', e.target.value);
+            }
+          }}
+          disabled={!isEditing}
+        />
+        <p className="class1">{inputs3.input1}</p>
+        <ul>
+          {inputs3.input2.split('\n').map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="Input 1"
+          value={inputs4.input1}
+          onChange={(e) => handleInputChange(setInputs4, 'input1', e.target.value)}
+          disabled={!isEditing}
+        />
+        <input
+          type="text"
+          placeholder="Input 2"
+          value={inputs4.input2}
+          onChange={(e) => handleInputChange(setInputs4, 'input2', e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              handleEnterPress(setInputs4, 'input2', e.target.value);
+            }
+          }}
+          disabled={!isEditing}
+        />
+        <p className="class1">{inputs4.input1}</p>
+        <ul>
+          {inputs4.input2.split('\n').map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      </div>
+      <button onClick={handleButtonToggle}>{isEditing ? 'Save Edits' : 'Enable Edit'}</button>
+    </div>
   );
 };
-

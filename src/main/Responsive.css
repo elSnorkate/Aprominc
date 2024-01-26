@@ -47,6 +47,9 @@
 .end{
     width: 40vh;
 }
+footer{
+    display: none;
+}
 /* this is reponsivity for Extras.css */
 @media (max-width: 768px) {
 .line{
